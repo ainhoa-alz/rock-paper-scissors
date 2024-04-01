@@ -11,8 +11,7 @@ function getComputerChoice(){
     }
 }
 
-//Ask the user to select one option//
-//Necesito una variable que guarde la respuesta del usuario y que sea case insensitivetambién una reacción si el usuario escribe otra cosa 
+//Prompt user to select one option
 
 function getUserChoice() {
     let userChoice = prompt("Choose between rock, scissors, paper").toLowerCase()
@@ -23,13 +22,15 @@ function getUserChoice() {
     return userChoice;
 }
 
-
-//Determine the winner by comparing user's choice with computer's choice and display message//
-
+//Determine the winner by comparing user's choice with computer's choice and display message
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
+
+    console.log("User choice:", playerSelection); //why?
+    console.log("Computer choice:", computerSelection); //why?? 
+
     if (playerSelection === computerSelection) {
         return "It's a tie, lucky you"; 
     } else if (
@@ -43,12 +44,69 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let computerChoice = getComputerChoice();
-let userChoice = getUserChoice();
-console.log("Computer choice:", computerChoice)
-console.log("User choice:", userChoice);
-console.log(playRound(userChoice, computerChoice)) //pasamos como argumentos de la función
+//5 rounds, keeping score, and reporting a winner or loser at the end. 
+
+function playGame() {
+    
+    let userScore =0;
+    let computerScore=0;
+    
+    //Round 1 
+    let result = (playRound (getUserChoice(), getComputerChoice()));
+    if (result === "You win! Nice one!"){
+        userScore++
+    } else if (result === "Oh no, you lose :(") {
+        computerScore++
+    }
+    console.log("User score: " + userScore + ". Computer score: " + computerScore);
+
+    //Round 2
+    result = (playRound (getUserChoice(), getComputerChoice()));
+    if (result === "You win! Nice one!"){
+        userScore++
+    } else if (result === "Oh no, you lose :(") {
+        computerScore++
+    }
+    console.log("User score: " + userScore + ". Computer score: " + computerScore);
+
+    //Round 3
+    result = (playRound (getUserChoice(), getComputerChoice()));
+    if (result === "You win! Nice one!"){
+        userScore++
+    } else if (result === "Oh no, you lose :(") {
+        computerScore++
+    }
+    console.log("User score: " + userScore + ". Computer score: " + computerScore);
+
+    //Round 4
+    result = (playRound (getUserChoice(), getComputerChoice()));
+    if (result === "You win! Nice one!"){
+        userScore++
+    } else if (result === "Oh no, you lose :(") {
+        computerScore++
+    }
+    console.log("User score: " + userScore + ". Computer score: " + computerScore);
+
+    //Round 5
+    result = (playRound (getUserChoice(), getComputerChoice()));
+    if (result === "You win! Nice one!"){
+        userScore++
+    } else if (result === "Oh no, you lose :(") {
+        computerScore++
+    }
+    console.log("User score: " + userScore + ". Computer score: " + computerScore);
+
+    //Final result
+
+    if (computerScore>userScore) {
+        console.log("GAME OVER. You lost. Give it another try") 
+    } else {
+        console.log ("WINNER! Fancy another round?")
+    }
+
+}
+    playGame()
 
 
-
-
+    
+    
