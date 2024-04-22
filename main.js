@@ -11,7 +11,8 @@ function getComputerChoice(){
     }
 }
 
-//Prompt user to select one option
+
+//Prompt user to select one option, if the option is not valid, throw an alert, and let him introduce a new option
 
 function getUserChoice() {
     let userChoice = prompt("Choose between rock, scissors, paper").toLowerCase()
@@ -22,14 +23,15 @@ function getUserChoice() {
     return userChoice;
 }
 
+
 //Determine the winner by comparing user's choice with computer's choice and display message
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
-    console.log("User choice:", playerSelection); //why?
-    console.log("Computer choice:", computerSelection); //why?? 
+    console.log("User choice:", playerSelection); // The game is played using the function playGame, there we will add userChoice as the atribute for this parameter
+    console.log("Computer choice:", computerSelection); // 
 
     if (playerSelection === computerSelection) {
         return "It's a tie, lucky you"; 
@@ -44,7 +46,9 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//5 rounds, keeping score, and reporting a winner or loser at the end. 
+
+// Use the functions above to create a game: 5 rounds, keep score, and report a winner or loser at the end. 
+
 
 function playGame() {
     
@@ -106,7 +110,6 @@ function playGame() {
 
 }
     playGame()
-
 
     
     

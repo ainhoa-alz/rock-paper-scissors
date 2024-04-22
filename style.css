@@ -1,0 +1,91 @@
+/* Include the desired font family from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+body {
+    background-color: #1f242d;
+    font-family: "Rubik", sans-serif;
+    color: white;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10+/Edge */
+    user-select: none;
+    flex-direction: column;
+}
+
+.game {
+    text-align: center;
+}
+
+.title {
+    margin-top:0;
+    margin-bottom: 90px;
+    font-family: "Audiowide", sans-serif;
+    font-size: 25px; 
+}
+
+.message {
+    font-size: 18px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 450;
+    margin-bottom: 20px;
+}
+.choices {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+img.choice {
+    width: 40px;
+    height: 40px;
+}
+
+.score {
+    font-size: 18px;
+    background-color: #2A303C;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+.options {
+    margin-top: 90px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.option {
+    width: 70px;
+    height: 70px;
+    background-color: #2A303C;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 100%;
+    padding: 10px;
+    align-content: center;
+    
+}
+
+button {
+    background-color: #1f242d;
+    border: none;
+    font-family: "Rubik", sans-serif;
+    color: white;
+    font-size:18px;
+    padding: 5px 10px;
+    border-bottom: 2px solid #4052fb;
+}
+
+footer{
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+}
