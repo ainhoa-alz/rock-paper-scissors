@@ -1,35 +1,42 @@
 /* Include the desired font family from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
     background-color: #1f242d;
-    font-family: "Rubik", sans-serif;
+    font-family: "Poppins", sans-serif;
     color: white;
     height: 100vh;
-    margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; 
+    overflow: hidden;                
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE 10+/Edge */
     user-select: none;
-    flex-direction: column;
 }
 
 .game {
-    text-align: center;
+    display:flex;
+    align-items:center;
+    justify-content:center; 
+    flex-direction:column; 
+    flex:1; 
 }
 
 .title {
     margin-top:0;
-    margin-bottom: 90px;
+    margin-bottom: 60px;
     font-family: "Audiowide", sans-serif;
     font-size: 25px; 
 }
 
+.title span{
+    color: #4052fb
+
+}
+
 .message {
-    font-size: 18px;
-    font-family: "Rubik", sans-serif;
+    font-size: 19px;
+    font-family: "Poppins", sans-serif;
     font-weight: 450;
     margin-bottom: 20px;
 }
@@ -41,8 +48,8 @@ body {
     margin-bottom: 30px;
 }
 img.choice {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
 .score {
@@ -52,9 +59,15 @@ img.choice {
     padding: 10px 20px;
 }
 
+.help-text{
+    font-size:14px;
+    margin-top: 60px;
+    margin-bottom:20px;
+    color: rgb(255, 255, 255, 0.2);
+}
 .options {
-    margin-top: 90px;
-    margin-bottom: 30px;
+ 
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,30 +75,39 @@ img.choice {
 }
 
 .option {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background-color: #2A303C;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     border-radius: 100%;
     padding: 10px;
-    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
     
 }
 
+.hand {
+    width:50px;
+    height:50px;
+    text-align:center; 
+    align-content: center;
+}
 button {
     background-color: #1f242d;
     border: none;
-    font-family: "Rubik", sans-serif;
+    font-family: "Poppins", sans-serif;
     color: white;
-    font-size:18px;
-    padding: 5px 10px;
+    font-size:15px;
+    padding: 5px 4px;
     border-bottom: 2px solid #4052fb;
 }
 
 footer{
     text-align: center;
-    font-size: 18px;
-    padding: 15px;
-    margin-top: 60px;
-    margin-bottom: 0px;
+    font-size: 15px;
+    padding: 20px;
+    color:  white;
+    border-top: solid 1px rgb(64, 82, 251, 0.3);
 }
