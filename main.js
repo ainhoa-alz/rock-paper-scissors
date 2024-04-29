@@ -1,115 +1,60 @@
+        function getComputerChoice(){
+            let randomNumber = Math.floor(Math.random()*3);
+            let computerSelection; 
+            const computerHand = document.querySelector(".computer-hand")
+            if (randomNumber===0) {
+                computerSelection ="rock";
+                computerHand.src ="images/rock.png"
+                computerHand.style.width = "45px"; computerHand.style.height = "45px";
+            } else if (randomNumber===1) {
+                computerSelection ="paper";
+                computerHand.src ="images/palm.png"
+                computerHand.style.width = "45px"; computerHand.style.height = "45px";
+            } else {
+                computerSelection ="scissors"; 
+                computerHand.src ="images/scissors.png"
+                computerHand.style.width = "45px"; computerHand.style.height = "45px";
+            }
+            return computerSelection; // Añade esta línea para devolver computerSelection
+        }
 
-//Generate a random option for the computer 
-function getComputerChoice(){
-    let randomNumber = Math.floor(Math.random()*3);
-    if (randomNumber===0) {
-        return "rock";
-    } else if (randomNumber===1) {
-        return "paper";
-    } else {
-        return "scissors";
-    }
-}
-
-
-//Prompt user to select one option, if the option is not valid, throw an alert, and let him introduce a new option
-
-function getUserChoice() {
-    let userChoice = prompt("Choose between rock, scissors, paper").toLowerCase()
-    if (userChoice !== "rock" && userChoice !== "scissors" && userChoice !== "paper"){
-        alert("Invalid, try again")
-        return getUserChoice()
-    }
-    return userChoice;
-}
-
-
-//Determine the winner by comparing user's choice with computer's choice and display message
-
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
-
-    console.log("User choice:", playerSelection); // The game is played using the function playGame, there we will add userChoice as the atribute for this parameter
-    console.log("Computer choice:", computerSelection); // 
-
-    if (playerSelection === computerSelection) {
-        return "It's a tie, lucky you"; 
-    } else if (
-        (playerSelection === "paper" && computerSelection === "rock") || 
-        (playerSelection === "scissors" && computerSelection === "paper") || 
-        (playerSelection === "rock" && computerSelection === "scissors")
-    ){
-        return "You win! Nice one!"; 
-    } else {
-        return "Oh no, you lose :("; 
-    }
-}
-
-
-// Use the functions above to create a game: 5 rounds, keep score, and report a winner or loser at the end. 
-
-
-function playGame() {
+        const userHand = document.querySelector(".userHand")
+        
     
-    let userScore =0;
-    let computerScore=0;
-    
-    //Round 1 
-    let result = (playRound (getUserChoice(), getComputerChoice()));
-    if (result === "You win! Nice one!"){
-        userScore++
-    } else if (result === "Oh no, you lose :(") {
-        computerScore++
-    }
-    console.log("User score: " + userScore + ". Computer score: " + computerScore);
+        const rock = document.querySelector("#rock");
+        rock.addEventListener("click", function(){
+            let playerSelection = "rock";
+            let computerSelection = getComputerChoice()
+            playRound(playerSelection,computerSelection)
+        } )
 
-    //Round 2
-    result = (playRound (getUserChoice(), getComputerChoice()));
-    if (result === "You win! Nice one!"){
-        userScore++
-    } else if (result === "Oh no, you lose :(") {
-        computerScore++
-    }
-    console.log("User score: " + userScore + ". Computer score: " + computerScore);
+        const paper = document.querySelector("#paper");
+        paper.addEventListener("click", function(){
+            let playerSelection = "paper";
+            let computerSelection = getComputerChoice();
+            
+        })
 
-    //Round 3
-    result = (playRound (getUserChoice(), getComputerChoice()));
-    if (result === "You win! Nice one!"){
-        userScore++
-    } else if (result === "Oh no, you lose :(") {
-        computerScore++
-    }
-    console.log("User score: " + userScore + ". Computer score: " + computerScore);
+        const scissors = document.querySelector("#scissor")
+        scissors.addEventListener("click", function() {
+            let playerSelection = "scissors"
+            let computerSelection = getComputerChoice()
+            playRound(playerSelection, computerSelection)
+        })
+       
+        function playRound(playerSelection, computerSelection) {
+            
+            const message = document.querySelector(".message");
 
-    //Round 4
-    result = (playRound (getUserChoice(), getComputerChoice()));
-    if (result === "You win! Nice one!"){
-        userScore++
-    } else if (result === "Oh no, you lose :(") {
-        computerScore++
-    }
-    console.log("User score: " + userScore + ". Computer score: " + computerScore);
-
-    //Round 5
-    result = (playRound (getUserChoice(), getComputerChoice()));
-    if (result === "You win! Nice one!"){
-        userScore++
-    } else if (result === "Oh no, you lose :(") {
-        computerScore++
-    }
-    console.log("User score: " + userScore + ". Computer score: " + computerScore);
-
-    //Final result
-
-    if (computerScore>userScore) {
-        console.log("GAME OVER. You lost. Give it another try") 
-    } else {
-        console.log ("WINNER! Fancy another round?")
-    }
-
-}
-    playGame()
-
-    
-    
+            if (playerSelection === computerSelection) {
+                message.textContent = "It's a tie, lucky you"; 
+            } else if (
+                (playerSelection === "paper" && computerSelection === "rock") || 
+                (playerSelection === "scissors" && computerSelection === "paper") || 
+                (playerSelection === "rock" && computerSelection === "scissors")
+            ){
+                message.textContent = "You win! Nice one!"; 
+            } else {
+                message.textContent = "Oh no, you lose :("; 
+            }
+        }
