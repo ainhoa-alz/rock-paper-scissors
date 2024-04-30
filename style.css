@@ -10,10 +10,7 @@ body {
     display: flex;
     flex-direction: column; 
     overflow: hidden;                
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE 10+/Edge */
-    user-select: none;
+
     
 }
 
@@ -115,3 +112,5 @@ footer{
     color:  white;
     border-top: solid 1px rgb(64, 82, 251, 0.3);
 }
+
+

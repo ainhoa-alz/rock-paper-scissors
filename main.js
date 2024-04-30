@@ -2,29 +2,28 @@
             let randomNumber = Math.floor(Math.random()*3);
             let computerSelection; 
             const computerHand = document.querySelector(".computer-hand")
+            computerHand.style.width = "45px"; computerHand.style.height = "45px";
             if (randomNumber===0) {
                 computerSelection ="rock";
                 computerHand.src ="images/rock.png"
-                computerHand.style.width = "45px"; computerHand.style.height = "45px";
             } else if (randomNumber===1) {
                 computerSelection ="paper";
                 computerHand.src ="images/palm.png"
-                computerHand.style.width = "45px"; computerHand.style.height = "45px";
             } else {
                 computerSelection ="scissors"; 
                 computerHand.src ="images/scissors.png"
-                computerHand.style.width = "45px"; computerHand.style.height = "45px";
             }
-            return computerSelection; // Añade esta línea para devolver computerSelection
+            return computerSelection; 
         }
-
-        const userHand = document.querySelector(".userHand")
         
     
         const rock = document.querySelector("#rock");
         rock.addEventListener("click", function(){
             let playerSelection = "rock";
             let computerSelection = getComputerChoice()
+            const rockIcon = document.querySelector(".user-hand")
+            rockIcon.src ="images/rock.png"
+            rockIcon.style.width="45px"; rockIcon.style.height="45px"
             playRound(playerSelection,computerSelection)
         } )
 
@@ -32,6 +31,10 @@
         paper.addEventListener("click", function(){
             let playerSelection = "paper";
             let computerSelection = getComputerChoice();
+            const paperIcon = document.querySelector(".user-hand")
+            paperIcon.src ="images/palm.png"
+            paperIcon.style.width="45px"; paperIcon.style.height="45px"
+            playRound(playerSelection,computerSelection)
             
         })
 
@@ -39,7 +42,38 @@
         scissors.addEventListener("click", function() {
             let playerSelection = "scissors"
             let computerSelection = getComputerChoice()
+            const scissorIcon = document.querySelector(".user-hand")
+            scissorIcon.src ="images/scissors.png"
+            scissorIcon.style.width="45px"; scissorIcon.style.height="45px"
             playRound(playerSelection, computerSelection)
+        })
+
+        const userScoreElement = document.querySelector(".user-score");
+        const computerScoreElement = document.querySelector(".computer-score");
+        let userScore = 0;
+        let computerScore = 0;
+
+        const restart = document.querySelector("button");
+        restart.addEventListener("click", function() {
+            
+            computerScore = 0; 
+            userScore = 0; 
+            
+            userScoreElement.textContent = userScore;
+            computerScoreElement.textContent = computerScore; 
+            
+            const message = document.querySelector(".message");
+            message.textContent = "Let's get this game started!"; 
+        
+
+            
+            const hornUser = document.querySelector(".user-hand")
+            hornUser.src ="images/horn.png"
+            hornUser.style.width="35px"; hornUser.style.height="35px"
+            const hornComputer = document.querySelector(".computer-hand")
+            hornComputer.src ="images/horn.png"
+            hornComputer.style.width="35px"; hornUser.style.height="35px"
+            
         })
        
         function playRound(playerSelection, computerSelection) {
@@ -54,7 +88,33 @@
                 (playerSelection === "rock" && computerSelection === "scissors")
             ){
                 message.textContent = "You win! Nice one!"; 
+                userScore++
+                
             } else {
                 message.textContent = "Oh no, you lose :("; 
+                computerScore++
+                
             }
+
+            userScoreElement.textContent = userScore;
+            computerScoreElement.textContent = computerScore; 
+
+            if (computerScore === 5) {
+                message.textContent = "Game Over. You've lost the game. Try again.";
+                computerScore = 0; 
+                userScore = 0; 
+            } else if (userScore === 5) {
+                message.textContent = "Awesome! You've won this round";
+                computerScore = 0; 
+                userScore = 0; 
+                
+            }
+        
         }
+
+
+       
+        
+    
+
+    
