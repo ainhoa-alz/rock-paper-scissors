@@ -81,6 +81,8 @@
     
             const helpText = document.querySelector(".help-text");
             helpText.textContent = "CHOOSE AN OPTION";
+
+            message.style.color = "";
         })
 
         function disablePlayerOption(){
@@ -134,12 +136,14 @@
             computerScoreElement.textContent = computerScore; 
 
             if (computerScore === 5) {
-                message.textContent = "GAME OVER \uD83C\uDF89";
+                message.textContent = "GAME OVER";
+                message.style.color = "#00FFFF" 
                 computerScore = 0; 
                 userScore = 0; 
                 disablePlayerOption();
             } else if (userScore === 5) {
-                message.textContent = "Congratulations! You've won \uD83C\uDF89!";
+                message.textContent = "Congratulations! You've won!";
+                message.style.color = "#00FFFF" 
                 computerScore = 0; 
                 userScore = 0; 
                 disablePlayerOption();

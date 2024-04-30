@@ -29,11 +29,6 @@ body {
     font-size: 25px; 
 }
 
-.title span{
-    color: #4052fb
-
-}
-
 .message {
     font-size: 19px;
     font-family: "Poppins", sans-serif;
@@ -121,7 +116,7 @@ button {
     color: white;
     font-size:15px;
     padding: 5px 4px;
-    border-bottom: 2px solid #4052fb;
+    border-bottom: 2px solid #00FFFF;
     cursor: pointer;
 }
 
@@ -130,6 +125,6 @@ footer{
     font-size: 15px;
     padding: 20px;
     color:  white;
-    border-top: solid 1px rgb(64, 82, 251, 0.3);
+    border-top: solid 1px rgb(0, 255, 255, 0.3);
 }
 
