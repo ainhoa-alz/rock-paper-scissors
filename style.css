@@ -58,6 +58,8 @@ body {
     background-color: #2A303C;
     border-radius: 25px;
     padding: 10px 20px;
+    width:40px;
+    text-align:center;
 }
 
 .help-text{
@@ -73,6 +75,18 @@ body {
     justify-content: center;
     align-items: center;
     gap: 30px;
+    position:relative;
+    
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 999; 
 }
 
 .option {
@@ -85,8 +99,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  
-    
+    cursor:pointer;  
+}
+
+.option:hover{
+    transform: translateY(2px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
 }
 
 .hand {
@@ -103,6 +122,7 @@ button {
     font-size:15px;
     padding: 5px 4px;
     border-bottom: 2px solid #4052fb;
+    cursor: pointer;
 }
 
 footer{
@@ -112,5 +132,4 @@ footer{
     color:  white;
     border-top: solid 1px rgb(64, 82, 251, 0.3);
 }
-
 

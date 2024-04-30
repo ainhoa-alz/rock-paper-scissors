@@ -74,7 +74,41 @@
             hornComputer.src ="images/horn.png"
             hornComputer.style.width="35px"; hornUser.style.height="35px"
             
+             
+            const overlays = document.querySelectorAll(".overlay");
+            overlays.forEach(overlay => overlay.remove());
+
+    
+            const helpText = document.querySelector(".help-text");
+            helpText.textContent = "CHOOSE AN OPTION";
         })
+
+        function disablePlayerOption(){
+              
+            const rockOption = document.querySelector("#rock");
+            const paperOption = document.querySelector("#paper");
+            const scissorOption = document.querySelector("#scissor");
+
+                   
+            const overlayRock = document.createElement("div");
+            overlayRock.classList.add("overlay");
+
+            const overlayPaper = document.createElement("div");
+            overlayPaper.classList.add("overlay");
+
+            const overlayScissor = document.createElement("div");
+            overlayScissor.classList.add("overlay");
+
+                    
+            rockOption.insertAdjacentElement("afterend", overlayRock);
+            paperOption.insertAdjacentElement("afterend", overlayPaper);
+            scissorOption.insertAdjacentElement("afterend", overlayScissor);
+        
+            const helpText = document.querySelector(".help-text");
+            helpText.textContent = "RESTART GAME"
+
+            
+        }
        
         function playRound(playerSelection, computerSelection) {
             
@@ -100,13 +134,15 @@
             computerScoreElement.textContent = computerScore; 
 
             if (computerScore === 5) {
-                message.textContent = "Game Over. You've lost the game. Try again.";
+                message.textContent = "GAME OVER \uD83C\uDF89";
                 computerScore = 0; 
                 userScore = 0; 
+                disablePlayerOption();
             } else if (userScore === 5) {
-                message.textContent = "Awesome! You've won this round";
+                message.textContent = "Congratulations! You've won \uD83C\uDF89!";
                 computerScore = 0; 
                 userScore = 0; 
+                disablePlayerOption();
                 
             }
         
